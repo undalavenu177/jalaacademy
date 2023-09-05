@@ -1,0 +1,66 @@
+package stepdefine2;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pageobject2.validatefield;
+
+
+
+public class validatefiel {
+    private WebDriver driver;
+    private validatefield validate;
+    
+    @Given("I am on the login page")
+    public void iAmOnLoginPage() {
+    	System.setProperty("webdriver.edge.driver", "C:\\Users\\jo\\Desktop\\Venu\\new drivers\\new\\edgedriver_win64 (1)\\msedgedriver.exe");
+        driver = new EdgeDriver(); // Or use any other browser driver
+        validate = new validatefield(driver);
+        driver.get("https://magnus.jalatechnologies.com/"); // Replace with your login page URL
+    }
+    @When ("I click the login button")
+    public void clickLoginButton1() {
+        validate.clickLoginButton1();
+    }
+    @Then("it shows error message of please fill all fileds")
+    public void it_shows_error_message_of_please_fill_all_fileds() {
+        // Write code here that turns the phrase above into concrete actions
+        String act=driver.findElement(By.xpath("/html/body/div[4]/div/div[1]")).getText();
+        String exp="Please fill all the required field";
+        if (act.equals(exp)) {
+        	System.out.println("PASS");
+        }
+        else {
+        	System.out.println("FAIL");
+        }
+    }
+    @And("I enter username {string} and password {string}")
+    public void enterCredentials( String password) {
+        
+        validate.enterPassword1(password);
+    }
+    @Then("It shows error messge of please enter emial or phone")
+    public void it_shows_error_messge_of_please_enter_emial_or_phone() {
+        // Write code here that turns the phrase above into concrete actions
+        String actt=driver.findElement(By.xpath("/html/body/div[2]/div[2]/form/div[2]/span[2]/span")).getText();
+        String expp="Please enter email or mobile no.";
+        if (actt.equals(expp)) {
+        	System.out.println("PASS");
+        	
+        }
+        else {
+        	System.out.println("FAIL");
+        }
+    }
+    @And("I enter username {string} and password {string}")
+    public void enterCredentials1(String username) {
+        validate.enterUsername1(username);
+        
+    }
+ 
+}

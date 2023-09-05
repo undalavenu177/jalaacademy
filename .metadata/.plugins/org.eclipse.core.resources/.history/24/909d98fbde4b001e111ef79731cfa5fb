@@ -1,0 +1,30 @@
+package pageobject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class textfilds {
+	private WebDriver driver;
+    private By usernameField1 = By.id("UserName");
+    private By passwordField1 = By.id("Password");
+    private By loginButton1 = By.id("btnLogin");
+    
+    
+    public  validatefield (WebDriver driver) {
+        this.driver = driver;
+    }
+    
+    public void enterUsername1(String username) {
+        driver.findElement(usernameField1).sendKeys(username);
+    }
+    
+    public void enterPassword1(String password) {
+        driver.findElement(passwordField1).sendKeys(password);
+    }
+    
+    public void clickLoginButton1() {
+        driver.findElement(loginButton1).click();
+    }
+	
+
+}

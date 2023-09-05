@@ -1,0 +1,14 @@
+Feature: valadate textfields
+  
+ Scenario: Valadate textfields
+    Given I am on the login page
+    When I click the login button
+    Then it shows error message of please fill all fileds
+    
+ Scenario: Validate username textfields 
+    Given I am on the login page
+    And I enter password "jobprogram" 
+    When I click the login button
+    Then It shows error messge of please enter emial or phone 
+
+  

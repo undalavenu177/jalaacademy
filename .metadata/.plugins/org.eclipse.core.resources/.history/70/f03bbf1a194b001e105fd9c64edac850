@@ -1,0 +1,13 @@
+Feature: User Login
+
+Scenario: Successful login
+    Given I am on the login page
+    When I enter username "training@jalaacademy.com" and password "jobprogram"
+    And I click the login button
+    Then I should be logged in successfully
+
+Scenario: Invalid login credentials
+    Given I am on the login page
+    When I enter username "training@jalaacademy.co" and password "jobprogra"
+    And I click the login button
+    Then I should see an error message

@@ -1,0 +1,10 @@
+package runner;
+
+public class Snippet {
+	public static void main(String[] args) {
+		features = "src/test/resources/fetures",
+		                 glue = "stepdefine",
+		                 plugin = {"pretty", "html:target/cucumber-reports"}
+	}
+}
+

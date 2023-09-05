@@ -1,0 +1,17 @@
+package reports;
+
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+
+public class GenerateCucumberHTMLReport {
+    public static void main(String[] args) {
+        String reportOutputDirectory = "target/cucumber-report";
+        String jsonFilesDirectory = "target/cucumber-json-reports"; // The directory where your JSON files are located
+
+        Configuration configuration = new Configuration(new File(reportOutputDirectory), "Your Project Name");
+        configuration.addClassifications("Environment", "Test Environment");
+
+        ReportBuilder reportBuilder = new ReportBuilder(Collections.singletonList(jsonFilesDirectory), configuration);
+        reportBuilder.generateReports();
+    }
+}

@@ -1,0 +1,10 @@
+package testrunner;
+
+@Runwith(Cucumber.class)
+@Cucumber Options(features = "src/test/resources/fetures",
+glue = "stepdefine",
+plugin = {"pretty", "html:target/cucumber-reports"})
+
+public class run {
+
+}

@@ -1,0 +1,60 @@
+package stepd;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.*;
+
+public class LoginSteps {
+
+	WebDriver driver;
+    @Given("I am on the login page")
+    public void goToLoginPage() throws InterruptedException {
+    	System.setProperty("Webdriver.chrome.driver", "C:\\Users\\jo\\Documents\\webDriver progra\\chromedriver_win32\\chromedriver.exe");
+
+		  WebDriver driver =new ChromeDriver();
+		  driver.manage().window().maximize();
+		  Thread.sleep(3000);
+		  driver.get("https://www.facebook.com/login/");
+		  Thread.sleep(3000);
+		  String actTitle=driver.getTitle();
+		  String ExpectedTitle="Log in to Facebook";
+		  if (actTitle.equals(ExpectedTitle)) {
+			  System.out.println("Pass");
+		  }
+    }
+
+    @When("I enter an invalid username or password")
+    public void enterCredentials() throws InterruptedException {
+  	  driver.findElement(By.id("email")).sendKeys("venu95812154175");
+  		Thread.sleep(3000);
+  		driver.findElement(By.id("pass")).sendKeys("ilovevenu5");
+  		Thread.sleep(3000);
+    }
+
+    @When("I click the login button")
+    public void enterInvalidCredentials() throws InterruptedException {
+    	driver.findElement(By.id("loginbutton")).click();
+		Thread.sleep(3000);
+    }
+
+    @When("I enter my username and password")
+    public void clickLoginButton() throws InterruptedException {
+    	    driver.findElement(By.id("email")).sendKeys("venu9581215417");
+    		Thread.sleep(3000);
+    		driver.findElement(By.id("pass")).sendKeys("ilovevenu");
+    		Thread.sleep(3000);
+        // Implementation goes here
+    }
+
+    @Then("I should be logged in")
+    public void verifyLogin() {
+    	driver.findElement(By.id("loginbutton")).click();
+        // Implementation goes here
+    }
+
+    @Then("I should see an error message")
+    public void verifyErrorMessage() {
+        // Implementation goes here
+    }
+}

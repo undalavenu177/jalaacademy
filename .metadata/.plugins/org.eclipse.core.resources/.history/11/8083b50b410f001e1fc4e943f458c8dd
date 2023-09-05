@@ -1,0 +1,35 @@
+package stepd;
+import io.cucumber.java.en.*;
+
+public class LoginSteps {
+
+    @Given("I am on the login page")
+    public void goToLoginPage() {
+        // Implementation goes here
+    }
+
+    @When("I enter my username and password")
+    public void enterCredentials() {
+        // Implementation goes here
+    }
+
+    @When("I enter an invalid username or password")
+    public void enterInvalidCredentials() {
+        // Implementation goes here
+    }
+
+    @When("I click the login button")
+    public void clickLoginButton() {
+        // Implementation goes here
+    }
+
+    @Then("I should be logged in")
+    public void verifyLogin() {
+        // Implementation goes here
+    }
+
+    @Then("I should see an error message")
+    public void verifyErrorMessage() {
+        // Implementation goes here
+    }
+}
