@@ -1,0 +1,22 @@
+Feature: create employee
+
+Scenario: Successful create employee
+    Given It opens login page
+    When It enters username "training@jalaacademy.com" and password "jobprogram"
+    When It clicking the login button
+    When i click the employee page button
+    When i click the create button
+    When i enter the firstname "undala"
+    When i enter the lastname "venu"
+    When i enter the email "undalavenu88@gmail.com"
+    When i enter the phone "9581215417"
+    When i enter the dob "17/06/1997"
+    When i enter the address "h.no 4-5,yalluru,kurnnol"
+    When i select Country
+    When i select city
+    When i select course
+    When i click the save button
+    When enter the name and Number
+    when click on search button
+   
+    

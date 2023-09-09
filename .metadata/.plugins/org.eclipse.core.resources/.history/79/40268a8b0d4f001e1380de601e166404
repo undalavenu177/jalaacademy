@@ -1,0 +1,119 @@
+package pageobject3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class employ {
+    
+	
+	private WebDriver driver;
+    private By usernameField = By.id("UserName");
+    private By passwordField = By.id("Password");
+    private By loginButton = By.id("btnLogin");
+    private By empbutton  =By.xpath("//*[@class='fa fa-users']");
+    private By createbtn  =By.xpath("//*[@class='fa fa-pencil-square-o']");
+    private By firstname=By.id("FirstName");
+    private By lastname=By.id("LastName");
+    private By email=By.id("EmailId");
+    private By phone=By.id("MobileNo");
+    private By dob=By.id("DOB");
+    private By address=By.id("Address");
+    private By country=By.id("CountryId");
+    private By city=By.id("CityId");
+    private By course=By.id("chkSkill_1");
+    private By save=By.xpath("//*[@id=\"frmEmployee\"]/div[2]/button");
+    private By user=By.id("Name");
+    private By numb=By.id("MobileNo");
+    private By Search=By.id("btnSearch");
+    
+    public employ(WebDriver driver) {
+        this.driver = driver;
+    }
+    
+    public void enterUsername(String username) {
+        driver.findElement(usernameField).sendKeys(username);
+        driver.manage().window().maximize();
+    }
+    
+    public void enterPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+    }
+    
+    public void clickLoginButton() throws InterruptedException {
+    	Thread.sleep(3000);
+        driver.findElement(loginButton).click();
+        Thread.sleep(6000);
+        
+    }
+    public void emplbtn() throws InterruptedException {
+    	
+    	WebElement element = driver.findElement(empbutton);
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    	element.click();
+
+
+    }
+    public void cretebtn() throws InterruptedException {
+    	WebElement element = driver.findElement( createbtn);
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    	element.click();
+    }
+    public void firstname(String fname) {
+    	driver.findElement(firstname).sendKeys(fname);
+    }
+    public void lastname(String lname) {
+    	driver.findElement(lastname).sendKeys(lname);
+    }
+    public void email(String mail) {
+    	driver.findElement(email).sendKeys(mail);
+    }
+    public void phone(String num) {
+    	driver.findElement(phone).sendKeys(num);
+    	
+    }
+    public void dob(String dbb) {
+    	driver.findElement(dob).sendKeys(dbb);
+    }
+    
+    public void addr(String add) {
+    	driver.findElement(address).sendKeys(add);
+    	
+    }
+    public void country(String cntry) throws InterruptedException {
+    	Thread.sleep(3000);
+    	WebElement tt=driver.findElement(country);
+    	Select drop=new Select(tt);
+    	drop.selectByValue("1");
+    	
+    }    public void city( String cit) throws InterruptedException {
+    	Thread.sleep(3000);
+    	WebElement cc=driver.findElement(city);
+    	Select drop2=new Select(cc);
+    	drop2.selectByValue("7");
+    	
+    	
+    }
+    public void coursse() {
+    	driver.findElement(course).click();
+    }
+    public void savee() {
+    	driver.findElement(save).click();
+    } 
+    public void enterthename(String ename) {
+    	driver.findElement(user).sendKeys(ename);
+    	
+    }
+    public void number(String numm) {
+    	driver.findElement(numb).sendKeys(numm);
+    	
+    }
+    public void search() {
+    	driver.findElement(save).click();
+    	
+    }
+}

@@ -1,0 +1,89 @@
+package pageobject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class create {
+    
+	
+	private WebDriver driver;
+    private By usernameField = By.id("UserName");
+    private By passwordField = By.id("Password");
+    private By loginButton = By.id("btnLogin");
+    private By empbutton  =By.xpath("//*[@id=\"MenusDashboard\"]/li[2]/a");
+    private By createbtn  =By.xpath("//*[@id=\"MenusDashboard\"]/li[2]/ul/li[1]/a");
+    private By firstname=By.id("FirstName");
+    private By lastname=By.id("LastName");
+    private By email=By.id("EmailId");
+    private By phone=By.id("MobileNo");
+    private By dob=By.id("DOB");
+    private By address=By.id("Address");
+    private By country=By.id("CountryId");
+    private By city=By.id("CityId");
+    private By course=By.id("chkSkill_1");
+    private By save=By.xpath("//*[@id=\"frmEmployee\"]/div[2]/button");
+    
+    public create(WebDriver driver) {
+        this.driver = driver;
+    }
+    
+    public void enterUsername(String username) {
+        driver.findElement(usernameField).sendKeys(username);
+    }
+    
+    public void enterPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+    }
+    
+    public void clickLoginButton() {
+        driver.findElement(loginButton).click();
+    }
+    public void emplbtn() {
+    	driver.findElement(empbutton).click();
+    }
+    public void cretebtn() {
+    	driver.findElement(createbtn).click();
+    }
+    public void firstname(String fname) {
+    	driver.findElement(firstname).sendKeys(fname);
+    }
+    public void lastname(String lname) {
+    	driver.findElement(lastname).sendKeys(lname);
+    }
+    public void email(String mail) {
+    	driver.findElement(email).sendKeys(mail);
+    }
+    public void phone(String num) {
+    	driver.findElement(phone).sendKeys(num);
+    	
+    }
+    public void dob(String dbb) {
+    	driver.findElement(dob).sendKeys(dbb);
+    }
+    
+    public void addr(String add) {
+    	driver.findElement(address).sendKeys(add);
+    	
+    }
+    public void country(String cntry) {
+    	WebElement tt=driver.findElement(country);
+    	Select drop=new Select(tt);
+    	drop.selectByValue("1");
+    	
+    }
+    public void city( String cit) {
+    	WebElement cc=driver.findElement(city);
+    	Select drop2=new Select(cc);
+    	drop2.selectByValue("7");
+    	
+    	
+    }
+    public void coursse() {
+    	driver.findElement(course).click();
+    }
+    public void savee() {
+    	driver.findElement(save).click();
+    } 
+}

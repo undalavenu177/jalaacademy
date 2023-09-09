@@ -1,0 +1,34 @@
+package stepdefine;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import pageobject.create;
+
+public class createemp {
+    private WebDriver driver;
+    private create creatt;
+    
+    @Given("on the login page")
+    public void iAmOnLoginPage() {
+    	System.setProperty("webdriver.edge.driver", "C:\\Users\\jo\\Desktop\\Venu\\new drivers\\new\\edgedriver_win64 (1)\\msedgedriver.exe");
+        driver = new EdgeDriver(); // Or use any other browser driver
+        creatt = new create(driver);
+        driver.get("https://magnus.jalatechnologies.com/"); // Replace with your login page URL
+    }
+    
+    @When("username {string} and password {string}")
+    public void enterCredentials(String username, String password) {
+        creatt.enterUsername(username);
+        creatt.enterPassword(password);
+    }
+    @When("clickcing signin")
+    public void i_click_the_login_button() {
+        // Write code here that turns the phrase above into concrete actions
+    	creatt.clickLoginButton();
+    }
+    
+
+}

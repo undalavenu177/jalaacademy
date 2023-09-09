@@ -1,0 +1,107 @@
+package stepdefine;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import pageobject.create;
+
+public class createemp {
+    private WebDriver driver;
+    private create creatt;
+    
+    @Given("on the login page")
+    public void OnLoginPage() {
+    	System.setProperty("webdriver.edge.driver", "C:\\Users\\jo\\Desktop\\Venu\\new drivers\\new\\edgedriver_win64 (1)\\msedgedriver.exe");
+        driver = new EdgeDriver(); // Or use any other browser driver
+        creatt = new create(driver);
+        driver.get("https://magnus.jalatechnologies.com/"); // Replace with your login page URL
+    }
+    
+    @When("username {string} and password {string}")
+    public void Credentials(String username, String password) {
+        creatt.enterUsername(username);
+        creatt.enterPassword(password);
+    }
+    @When("clickcing signin")
+    public void i_click_the_login_button() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+    	creatt.clickLoginButton();
+    }
+    @When("i click the employee page button")
+    public void i_click_the_employee_page_button() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+  
+        creatt.emplbtn();
+    }
+
+    @When("i click the create button")
+    public void i_click_the_create_button() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+       creatt.cretebtn();
+    }
+
+    @When("i enter the firstname {string}")
+    public void i_enter_the_firstname(String firstname) {
+        // Write code here that turns the phrase above into concrete actions
+    	
+       creatt.firstname(firstname);
+    }
+
+    @When("i enter the lastname {string}")
+    public void i_enter_the_lastname(String lastname) {
+        // Write code here that turns the phrase above into concrete actions
+        creatt.lastname(lastname);
+    }
+
+    @When("i enter the email {string}")
+    public void i_enter_the_email(String email) {
+        // Write code here that turns the phrase above into concrete actions
+        creatt.email(email);
+    }
+
+    @When("i enter the phone {string}")
+    public void i_enter_the_phone(String phone) {
+        // Write code here that turns the phrase above into concrete actions
+        creatt.phone(phone);
+    }
+
+    @When("i enter the dob {string}")
+    public void i_enter_the_dob(String dob) {
+        // Write code here that turns the phrase above into concrete actions
+        creatt.dob(dob);
+    }
+
+    @When("i enter the address {string}")
+    public void i_enter_the_address(String address) {
+        // Write code here that turns the phrase above into concrete actions
+        creatt.addr(address);
+    }
+
+    @When("i select Country")
+    public void i_select_country() {
+        // Write code here that turns the phrase above into concrete actions
+    }
+
+    @When("i select city")
+    public void i_select_city() {
+        // Write code here that turns the phrase above into concrete actions
+       
+    }
+
+    @When("i select course")
+    public void i_select_course() {
+        // Write code here that turns the phrase above into concrete actions
+        
+    }
+
+    @When("i click the save button")
+    public void i_click_the_save_button() {
+        // Write code here that turns the phrase above into concrete actions
+        
+    }
+
+    
+
+}
